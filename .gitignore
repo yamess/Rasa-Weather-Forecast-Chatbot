@@ -1,5 +1,6 @@
 .idea/
 models/
+.rasa/cache/
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
