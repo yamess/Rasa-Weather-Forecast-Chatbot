@@ -1,0 +1,28 @@
+version: "3.1"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- rule: activate weather form
+  steps:
+    - intent: weather
+    - action: weather_form
+    - active_loop: weather_form
+
+- rule: Submit form
+  condition:
+    - active_loop: weather_form
+  steps:
+    - action: weather_form
+    - active_loop: null
+    - slot_was_set:
+        - requested_slot: null
